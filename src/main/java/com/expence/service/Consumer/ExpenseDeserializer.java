@@ -17,7 +17,7 @@ public class ExpenseDeserializer implements Deserializer<ExpenseDTO> {
             System.out.println("Incoming payload: " + new String(data));
             expenseDTO= objectMapper.readValue(data, ExpenseDTO.class);
         }catch (Exception ex){
-          ex.printStackTrace();
+            throw new RuntimeException("Failed to deserialize ExpenseDTO", ex);
         }
         return expenseDTO;
     }
