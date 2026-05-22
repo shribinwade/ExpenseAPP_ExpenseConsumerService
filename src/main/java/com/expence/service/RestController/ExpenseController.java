@@ -6,11 +6,10 @@ import jakarta.websocket.server.PathParam;
 import lombok.NonNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "*")
 @RestController
 public class ExpenseController {
 
@@ -27,6 +26,16 @@ public class ExpenseController {
            return new ResponseEntity<>(expenseDTOList,HttpStatus.OK);
         }catch (Exception ex){
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping(path = "/addExpense")
+    public ResponseEntity<Boolean> addExpenses(@RequestHeader(value = "X-User-Id") @NonNull String userId,ExpenseDTO expenseDTO){
+        try{
+              expenseDTO.setUserId(userId);
+              return new ResponseEntity<>(expenseService.createExpense(expenseDTO),HttpStatus.OK);
+        }catch (Exception ex){
+              return new ResponseEntity<>(false,HttpStatus.BAD_REQUEST);
         }
     }
 

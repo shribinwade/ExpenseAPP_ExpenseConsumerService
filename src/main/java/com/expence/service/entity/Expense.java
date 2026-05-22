@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.UUID;
@@ -48,7 +49,7 @@ public class Expense {
             this.externalId = UUID.randomUUID().toString();
         }
         if(this.createdAt==null){
-            this.createdAt = Timestamp.valueOf(LocalDateTime.now());
+            this.createdAt = new Timestamp(Instant.now().toEpochMilli());
         }
     }
 

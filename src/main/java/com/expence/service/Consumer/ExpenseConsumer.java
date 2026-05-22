@@ -23,7 +23,8 @@ public class ExpenseConsumer {
         try{
             //TODO: Make it transactionl, and check if duplicate event (handle idempotency)
              expenseService.createExpense(expenseDTO);
-        } catch (Exception e) {
+        } catch (Exception ex) {
+            ex.printStackTrace();
             System.out.println("Exception is listing the event");
         }
     }

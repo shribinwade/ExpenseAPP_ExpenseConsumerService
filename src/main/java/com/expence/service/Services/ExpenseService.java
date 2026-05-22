@@ -74,7 +74,7 @@ public class ExpenseService {
 
     private void setCurrency(ExpenseDTO expenseDTO){
         if(Objects.isNull(expenseDTO.getCurrency())){
-            expenseDTO.setCurrency("inr");
+            expenseDTO.setCurrency("INR");
         }
     }
 
