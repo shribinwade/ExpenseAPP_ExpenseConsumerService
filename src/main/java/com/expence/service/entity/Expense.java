@@ -1,6 +1,7 @@
 package com.expence.service.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,7 @@ public class Expense {
     private String externalId;
 
     @Column(name= "user_id")
+    @JsonProperty("user_id")
     private String userId;
 
     @Column(name= "amount")
