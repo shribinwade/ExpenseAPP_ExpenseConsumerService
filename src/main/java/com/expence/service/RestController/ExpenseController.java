@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @CrossOrigin(origins = "*")
 @RestController
+
 public class ExpenseController {
 
   private final ExpenseService expenseService;
@@ -37,6 +38,11 @@ public class ExpenseController {
         }catch (Exception ex){
               return new ResponseEntity<>(false,HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @GetMapping("/expense/v1/health")
+    public ResponseEntity<Boolean> checkHealth(){
+        return new ResponseEntity<>(true,HttpStatus.OK);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.expence.service.config;
+package com.expence.service.Config;
 
 import com.expence.service.Consumer.ExpenseDeserializer;
 import com.expence.service.DTOs.ExpenseDTO;

@@ -7,7 +7,7 @@ plugins {
 }
 
 group = 'com.expence'
-version = '0.0.1-SNAPSHOT'
+
 
 java {
 	toolchain {
@@ -33,6 +33,7 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testAnnotationProcessor 'org.projectlombok:lombok'
 	implementation "org.springframework.kafka:spring-kafka"
+
 
 }
 
